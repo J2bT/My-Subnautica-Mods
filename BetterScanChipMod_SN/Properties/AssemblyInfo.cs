@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("BetterScanChipMod_SN")]
+[assembly: AssemblyTitle("J2bT_ControlChipMod")]
 [assembly: AssemblyDescription("J2bT's first subnautica mod.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("BetterScanChipMod_SN")]
+[assembly: AssemblyProduct("J2bT.ControlChipMod")]
 [assembly: AssemblyCopyright("Copyright ©  2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

@@ -7,13 +7,13 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-namespace BetterScanChipMod_SN
+namespace J2bT.ControlChipMod
 {
     public class MapRoomControlChip : Equipable
     {
         public static TechType TechTypeID { get; protected set; }
         public override string AssetsFolder => Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "Assets");
-        public MapRoomControlChip() : base("MapRoomControlChip", "Map Room Control Chip", "Placeholder text")
+        public MapRoomControlChip() : base("MapRoomControlChip", "Scanner Room Control Chip", "Allows to control scanner room from anywhere on the map!")
         {
             OnFinishedPatching += () =>
             {

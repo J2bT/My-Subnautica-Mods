@@ -1,6 +1,6 @@
 ﻿using HarmonyLib;
 
-namespace BetterScanChipMod_SN
+namespace J2bT.ControlChipMod
 {
     public static class Patches
     {

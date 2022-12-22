@@ -9,7 +9,7 @@ using QModManager.API;
 using System;
 using System.Linq;
 
-namespace BetterScanChipMod_SN
+namespace J2bT.ControlChipMod
 {
     internal class Mono : MonoBehaviour
     {

@@ -7,7 +7,7 @@ using SMLHelper.V2.Options.Attributes;
 using SMLHelper.V2.Handlers;
 using UnityEngine;
 
-namespace BetterScanChipMod_SN
+namespace J2bT.ControlChipMod
 {
     [QModCore]
     public static class QMod
@@ -18,7 +18,7 @@ namespace BetterScanChipMod_SN
         public static void Patch()
         {
             var assembly = Assembly.GetExecutingAssembly();
-            var modName = ($"J2bT_{assembly.GetName().Name}");
+            var modName = ($"J2bT.{assembly.GetName().Name}");
             Logger.Log(Logger.Level.Info, $"Patching {modName}");
             Harmony harmony = new Harmony(modName);
             harmony.PatchAll(assembly);
@@ -32,7 +32,7 @@ namespace BetterScanChipMod_SN
     [Menu("Scanner Room Control Chip")]
     public class Config : ConfigFile
     {
-        [Keybind("Next resource")]
+        [Keybind("Next resource / Turn on scanner room")]
         public KeyCode next = KeyCode.RightArrow;
         [Keybind("Previous resource")]
         public KeyCode previous = KeyCode.LeftArrow;
