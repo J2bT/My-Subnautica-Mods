@@ -1,7 +1,6 @@
 ﻿using RecipeData = SMLHelper.V2.Crafting.TechData;
 using SMLHelper.V2.Assets;
 using SMLHelper.V2.Crafting;
-using SMLHelper.V2.Utility;
 using System.Reflection;
 using System.Collections.Generic;
 using System.IO;

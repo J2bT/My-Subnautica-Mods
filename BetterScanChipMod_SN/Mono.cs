@@ -1,12 +1,6 @@
 ﻿using Logger = QModManager.Utility.Logger;
-using System.Reflection;
-using UWE;
 using System.Collections.Generic;
-using System.IO;
 using UnityEngine;
-using UnityEngine.UI;
-using QModManager.API;
-using System;
 using System.Linq;
 
 namespace J2bT.ControlChipMod
