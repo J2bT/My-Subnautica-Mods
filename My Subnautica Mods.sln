@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetterScanChipMod_SN", "BetterScanChipMod_SN\BetterScanChipMod_SN.csproj", "{ACDF2DCD-B4F8-4550-A2D1-D20FF1BD3D80}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Below Zero|Any CPU = Below Zero|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Subnautica|Any CPU = Subnautica|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ACDF2DCD-B4F8-4550-A2D1-D20FF1BD3D80}.Below Zero|Any CPU.ActiveCfg = Below Zero|Any CPU
+		{ACDF2DCD-B4F8-4550-A2D1-D20FF1BD3D80}.Below Zero|Any CPU.Build.0 = Below Zero|Any CPU
+		{ACDF2DCD-B4F8-4550-A2D1-D20FF1BD3D80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACDF2DCD-B4F8-4550-A2D1-D20FF1BD3D80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACDF2DCD-B4F8-4550-A2D1-D20FF1BD3D80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACDF2DCD-B4F8-4550-A2D1-D20FF1BD3D80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACDF2DCD-B4F8-4550-A2D1-D20FF1BD3D80}.Subnautica|Any CPU.ActiveCfg = Subnautica|Any CPU
+		{ACDF2DCD-B4F8-4550-A2D1-D20FF1BD3D80}.Subnautica|Any CPU.Build.0 = Subnautica|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {59F86708-813F-4297-8FD3-D5C638AEDABF}
+	EndGlobalSection
+EndGlobal
