@@ -13,7 +13,7 @@ namespace J2bT.ControlChipMod
     {
         public static TechType TechTypeID { get; protected set; }
         public override string AssetsFolder => Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "Assets");
-        public MapRoomControlChip() : base("MapRoomControlChip", "Scanner Room Control Chip", "Allows to control scanner room from anywhere on the map!")
+        public MapRoomControlChip() : base("MapRoomControlChip", "Scanner Room Control Chip", "Allows to control scanner rooms from anywhere on the map!")
         {
             OnFinishedPatching += () =>
             {
