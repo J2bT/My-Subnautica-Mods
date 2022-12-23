@@ -5,7 +5,7 @@ namespace J2bT.ControlChipMod
     public static class Patches
     {
         [HarmonyPatch(typeof(Player))]
-        public class PlayerPatch
+        public static class PlayerPatch
         {
             [HarmonyPatch(nameof(Player.Start))]
             [HarmonyPostfix]
