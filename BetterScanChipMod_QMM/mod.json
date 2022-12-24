@@ -2,7 +2,7 @@
   "Id": "BetterScanChipModSN",
   "DisplayName": "Scanner Room Control Chip",
   "Author": "J2bT",
-  "Version": "1.0.0",
+  "Version": "1.0.1",
   "Enable": true,
   "AssemblyName": "J2bT_ControlChipMod.dll",
   "VersionDependencies": {
