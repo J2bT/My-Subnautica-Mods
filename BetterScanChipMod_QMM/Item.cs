@@ -43,14 +43,14 @@ namespace J2bT.ControlChipMod
                 )
             };
         }
-
+#if SUBNAUTICA
         public override GameObject GetGameObject()
         {
             var prefab = CraftData.GetPrefabForTechType(TechType.MapRoomHUDChip);
             var obj = GameObject.Instantiate(prefab);
             return obj;
         }
-
+#elif BELOWZERO
         public override IEnumerator GetGameObjectAsync(IOut<GameObject> gameObject)
         {
             CoroutineTask<GameObject> task = CraftData.GetPrefabForTechTypeAsync(TechType.MapRoomHUDChip);
@@ -59,5 +59,6 @@ namespace J2bT.ControlChipMod
             GameObject resultPrefab = Object.Instantiate(origibalPrefab);
             gameObject.Set(resultPrefab);
         }
+#endif
     }
 }

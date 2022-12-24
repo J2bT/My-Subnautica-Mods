@@ -1,4 +1,9 @@
-﻿using Logger = QModManager.Utility.Logger;
+﻿#if SUBNAUTICA
+using GameSpecificTracker = ResourceTracker;
+#elif BELOWZERO
+using GameSpecificTracker = ResourceTrackerDatabase;
+#endif
+using Logger = QModManager.Utility.Logger;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
@@ -56,11 +61,11 @@ namespace J2bT.ControlChipMod
                 mapRooms[roomIndex].UpdateGUIState();
                 resourceIndex[roomIndex] = -1;
             }
-            else if (nextRes && resourceIndex[roomIndex] + 1 < ResourceTracker.resources.Count)
+            else if (nextRes && resourceIndex[roomIndex] + 1 < GameSpecificTracker.resources.Count)
             {
                 resourceIndex[roomIndex] += 1;
                 Logger.Log(Logger.Level.Debug, $"Current resource index: {resourceIndex[roomIndex]}", showOnScreen: true);
-                mapRooms[roomIndex].mapRoom.StartScanning(ResourceTracker.resources.ElementAt(resourceIndex[roomIndex]).Key);
+                mapRooms[roomIndex].mapRoom.StartScanning(GameSpecificTracker.resources.ElementAt(resourceIndex[roomIndex]).Key);
                 mapRooms[roomIndex].UpdateGUIState();
             }
             else if (nextRes)
@@ -71,7 +76,7 @@ namespace J2bT.ControlChipMod
             {
                 resourceIndex[roomIndex] -= 1;
                 Logger.Log(Logger.Level.Debug, $"Current resource index: {resourceIndex[roomIndex]}", showOnScreen: true);
-                mapRooms[roomIndex].mapRoom.StartScanning(ResourceTracker.resources.ElementAt(resourceIndex[roomIndex]).Key);
+                mapRooms[roomIndex].mapRoom.StartScanning(GameSpecificTracker.resources.ElementAt(resourceIndex[roomIndex]).Key);
                 mapRooms[roomIndex].UpdateGUIState();
             }
             else if (!nextRes && mapRooms[roomIndex].mapRoom.typeToScan != TechType.None)
