@@ -1,0 +1,18 @@
+﻿{
+  "Id": "ScannerRoomControlChipMod",
+  "DisplayName": "Scanner Room Control Chip",
+  "Author": "J2bT",
+  "Version": "1.0.2",
+  "Enable": true,
+  "AssemblyName": "J2bT_ControlChipMod.dll",
+  "VersionDependencies": {
+    "SMLHelper": "2.14.1"
+  },
+  "Game": "Subnautica",
+  "NexusId": {
+    "Subnautica": "1115"
+  },
+  "VersionChecker": {
+    "LatestVersionURL": "https://raw.githubusercontent.com/J2bT/My-Subnautica-Mods/master/BetterScanChipMod_SN/mod_SN.json"
+  }
+}
