@@ -166,7 +166,7 @@
 mkdir "$(GameDirBZ)\QMods\$(TargetName)\Assets"
 copy /Y "$(TargetPath)" "$(GameDirBZ)\QMods\$(TargetName)"
 copy /Y "$(ProjectDir)\mod_BZ.json" "$(GameDirBZ)\QMods\$(TargetName)\mod.json"
-xcopy /q/y/i "$(ProjectDir)/Assets" "$(GameDirBZ)\QMods\$(TargetName)"</PostBuildEvent>
+xcopy /q/y/i "$(ProjectDir)/Assets" "$(GameDirBZ)\QMods\$(TargetName)\Assets"</PostBuildEvent>
     <PostBuildEvent Condition="'$(Configuration)|$(Platform)' == 'Subnautica|AnyCPU'">mkdir "$(GameDirSN)\QMods\$(TargetName)"
 mkdir "$(GameDirSN)\QMods\$(TargetName)\Assets"
 copy /Y "$(TargetPath)" "$(GameDirSN)\QMods\$(TargetName)"
