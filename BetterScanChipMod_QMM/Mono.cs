@@ -18,7 +18,7 @@ namespace J2bT.ControlChipMod
                 {
                     resourceIndex[roomIndex] = -1;
                     roomIndex = mapRooms.Count - 1;
-                    Logger.Log(Logger.Level.Info, "Selected scanner room was destroyed. Selecting previous one.", showOnScreen: true);
+                    ErrorMessage.AddMessage("Selected scanner room was destroyed. Selecting previous one.");
                 }
                 if (Input.GetKeyUp(QMod.Config.next))
                 {
@@ -65,7 +65,7 @@ namespace J2bT.ControlChipMod
             }
             else if (nextRes)
             {
-                Logger.Log(Logger.Level.Info, "Can't select next resource! The last resource is currently selected.", showOnScreen: true);
+                ErrorMessage.AddMessage("Can't select next resource! The last resource is currently selected.");
             }
             else if (!nextRes && resourceIndex[roomIndex] - 1 > -1)
             {
@@ -76,11 +76,11 @@ namespace J2bT.ControlChipMod
             }
             else if (!nextRes && mapRooms[roomIndex].mapRoom.typeToScan != TechType.None)
             {
-                Logger.Log(Logger.Level.Info, "Can't select previous resource! The first resource is currently selected.", showOnScreen: true);
+                ErrorMessage.AddMessage("Can't select previous resource! The first resource is currently selected.");
             }
             else if (!nextRes)
             {
-                Logger.Log(Logger.Level.Info, "Can't select previous resource! Selected room is not active.", showOnScreen: true);
+                ErrorMessage.AddMessage("Can't select previous resource! Selected room is not active.");
             }
         }
 
@@ -93,7 +93,7 @@ namespace J2bT.ControlChipMod
             }
             else if (nextRoom)
             {
-                Logger.Log(Logger.Level.Info, "Can't select next room! The last room is currently selected.", showOnScreen: true);
+                ErrorMessage.AddMessage("Can't select next room! The last room is currently selected.");
             }
             else if (!nextRoom && roomIndex - 1 > -1)
             {
@@ -102,7 +102,7 @@ namespace J2bT.ControlChipMod
             }
             else if (!nextRoom)
             {
-                Logger.Log(Logger.Level.Info, "Can't select previous room! The first room is currently selected.", showOnScreen: true);
+                ErrorMessage.AddMessage("Can't select previous room! The first room is currently selected.");
             }
         }
 
