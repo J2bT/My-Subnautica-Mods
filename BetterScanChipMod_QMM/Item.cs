@@ -1,4 +1,6 @@
-﻿using RecipeData = SMLHelper.V2.Crafting.TechData;
+﻿#if SUBNAUTICA
+using RecipeData = SMLHelper.V2.Crafting.TechData;
+#endif
 using SMLHelper.V2.Assets;
 using SMLHelper.V2.Crafting;
 using System.Reflection;

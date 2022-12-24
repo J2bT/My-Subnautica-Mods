@@ -86,7 +86,7 @@ namespace J2bT.ControlChipMod
 
         public void SelectRoom(bool nextRoom)
         {
-            if (nextRoom && roomIndex + 1 < mapRooms.Count)
+            if (nextRoom && roomIndex + 1 < mapRooms.Count && roomIndex + 1 < 16)
             {
                 roomIndex += 1;
                 Logger.Log(Logger.Level.Debug, $"Current room index: {roomIndex}", showOnScreen: true);
