@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ControlChipMod_BepInEx
+namespace J2bT.ControlChipMod
 {
-    public class Class1
+    internal class Mono
     {
     }
 }
