@@ -17,7 +17,7 @@ namespace J2bT.ControlChipMod
         public static List<uGUI_MapRoomScanner> mapRooms = new List<uGUI_MapRoomScanner>();
         public void Update()
         {
-            if (ChipIsInSlot() && mapRooms.Count > 0)
+            if (AvatarInputHandler.main.IsEnabled() && ChipIsInSlot() && mapRooms.Count > 0)
             {
                 if (roomIndex > mapRooms.Count - 1)
                 {
