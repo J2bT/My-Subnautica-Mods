@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControlChipMod_QMM", "ControlChipMod_QMM\ControlChipMod_QMM.csproj", "{ACDF2DCD-B4F8-4550-A2D1-D20FF1BD3D80}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControlChipMod", "ControlChipMod\ControlChipMod.csproj", "{ACDF2DCD-B4F8-4550-A2D1-D20FF1BD3D80}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
