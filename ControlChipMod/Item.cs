@@ -1,5 +1,8 @@
 ﻿#if SUBNAUTICA
 using RecipeData = SMLHelper.V2.Crafting.TechData;
+using Sprite = Atlas.Sprite;
+#elif BELOWZERO
+using Sprite = UnityEngine.Sprite;
 #endif
 using SMLHelper.V2.Assets;
 using SMLHelper.V2.Crafting;
@@ -15,7 +18,7 @@ namespace J2bT.ControlChipMod
     {
         public static TechType TechTypeID { get; protected set; }
         public override string AssetsFolder => Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "Assets");
-        public MapRoomControlChip() : base("MapRoomControlChip", "Scanner Room Control Chip", "Allows to control scanner rooms from anywhere on the map!")
+        public MapRoomControlChip() : base("MapRoomControlChip", "Scanner Room Chip MK2", "Streams data from scanner rooms to the HUD and sends data back.")
         {
             OnFinishedPatching += () =>
             {
@@ -24,9 +27,9 @@ namespace J2bT.ControlChipMod
         }
         public override EquipmentType EquipmentType => EquipmentType.Chip;
         public override TechType RequiredForUnlock => TechType.MapRoomHUDChip;
-        public override TechGroup GroupForPDA => TechGroup.Personal;
-        public override TechCategory CategoryForPDA => TechCategory.MapRoomUpgrades;
-        public override CraftTree.Type FabricatorType => CraftTree.Type.MapRoom;
+        public override TechGroup GroupForPDA => TechGroup.Workbench;
+        public override TechCategory CategoryForPDA => TechCategory.Workbench;
+        public override CraftTree.Type FabricatorType => CraftTree.Type.Workbench;
         public override float CraftingTime => 1f;
         public override QuickSlotType QuickSlotType => QuickSlotType.Passive;
 
@@ -37,7 +40,7 @@ namespace J2bT.ControlChipMod
                 craftAmount = 1,
                 Ingredients = new List<Ingredient>(new Ingredient[]
                     {
-                        new Ingredient(TechType.Magnetite, 2),
+                        new Ingredient(TechType.MapRoomHUDChip, 1),
                         new Ingredient(TechType.CopperWire, 1)
                     }
                 )
@@ -60,5 +63,9 @@ namespace J2bT.ControlChipMod
             gameObject.Set(resultPrefab);
         }
 #endif
+        protected override Sprite GetItemSprite()
+        {
+            return SpriteManager.Get(TechType.MapRoomHUDChip);
+        }
     }
 }

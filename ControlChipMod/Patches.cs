@@ -25,5 +25,26 @@ namespace J2bT.ControlChipMod
                 Mono.mapRooms.Add(__instance);
             }
         }
+
+        [HarmonyPatch(typeof(Equipment))]
+        public static class EquipmentPatch
+        {
+            [HarmonyPatch("GetCount")]
+            [HarmonyPrefix]
+            public static bool GetCountPrefix(ref Equipment __instance, TechType techType, ref int __result)
+            {
+                if (techType == TechType.MapRoomHUDChip)
+                {
+                    int count;
+                    __instance.equippedCount.TryGetValue(MapRoomControlChip.TechTypeID, out count);
+                    if (count > 0)
+                    {
+                        __result = count;
+                        return false;
+                    }
+                }
+                return true;
+            }
+        }
     }
 }

@@ -156,9 +156,7 @@
     <None Include="mod_BZ.json" />
     <None Include="mod_SN.json" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
