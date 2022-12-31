@@ -8,12 +8,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-namespace J2bT.ControlChipMod
+namespace J2bT.ControlChipMod.MonoBehaviours
 {
-    internal class Mono : MonoBehaviour
+    internal class ControlChipMono : MonoBehaviour
     {
-        int roomIndex = 0;
-        int[] resourceIndex = new int[16] {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1};
+        public static int roomIndex = 0;
+        public static int[] resourceIndex = new int[16] {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1};
         public static List<uGUI_MapRoomScanner> mapRooms = new List<uGUI_MapRoomScanner>();
         public void Update()
         {
@@ -48,8 +48,12 @@ namespace J2bT.ControlChipMod
             }
             else
             {
-                roomIndex = 0;
                 resourceIndex[roomIndex] = -1;
+                roomIndex = 0;
+            }
+            if (mapRooms.Count > 0 && ChipIsInSlot() && mapRooms[roomIndex].mapRoom.typeToScan != TechType.None)
+            {
+                uGUI_ResourceIcon.main.Show();
             }
         }
 

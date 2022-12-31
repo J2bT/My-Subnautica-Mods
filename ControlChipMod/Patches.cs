@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using J2bT.ControlChipMod.MonoBehaviours;
 
 namespace J2bT.ControlChipMod
 {
@@ -11,7 +12,7 @@ namespace J2bT.ControlChipMod
             [HarmonyPostfix]
             public static void StartPostfix(Player __instance)
             {
-                __instance.gameObject.EnsureComponent<Mono>();
+                __instance.gameObject.EnsureComponent<ControlChipMono>();
             }
         }
 
@@ -22,7 +23,14 @@ namespace J2bT.ControlChipMod
             [HarmonyPostfix]
             public static void StartPostfix(uGUI_MapRoomScanner __instance)
             {
-                Mono.mapRooms.Add(__instance);
+                ControlChipMono.mapRooms.Add(__instance);
+            }
+
+            [HarmonyPatch(nameof(uGUI_MapRoomScanner.OnDestroy))]
+            [HarmonyPostfix]
+            public static void OnDestroyPostfix(uGUI_MapRoomScanner __instance)
+            {
+                ControlChipMono.mapRooms.Remove(__instance);
             }
         }
 
@@ -44,6 +52,17 @@ namespace J2bT.ControlChipMod
                     }
                 }
                 return true;
+            }
+        }
+
+        [HarmonyPatch(typeof(uGUI_ScannerIcon))]
+        public static class uGUI_ScannerIcon_Patch
+        {
+            [HarmonyPatch(nameof(uGUI_ScannerIcon.Awake))]
+            [HarmonyPostfix]
+            public static void AwakePostfix(uGUI_ScannerIcon __instance)
+            {
+                __instance.gameObject.EnsureComponent<uGUI_ResourceIcon>();
             }
         }
     }

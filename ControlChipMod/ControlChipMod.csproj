@@ -123,17 +123,8 @@
     <Reference Include="UnityEngine.UI" Condition="'$(Configuration)|$(Platform)' == 'Below Zero|AnyCPU'">
       <HintPath>$(GameDirBZ)\SubnauticaZero_Data\Managed\UnityEngine.UI.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.AnimationModule" Condition="'$(Configuration)|$(Platform)' == 'Below Zero|AnyCPU'">
-      <HintPath>$(GameDirBZ)\SubnauticaZero_Data\Managed\UnityEngine.AnimationModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.InputModule" Condition="'$(Configuration)|$(Platform)' == 'Below Zero|AnyCPU'">
-      <HintPath>$(GameDirBZ)\SubnauticaZero_Data\Managed\UnityEngine.InputModule.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.PhysicsModule" Condition="'$(Configuration)|$(Platform)' == 'Below Zero|AnyCPU'">
       <HintPath>$(GameDirBZ)\SubnauticaZero_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.TerrainModule" Condition="'$(Configuration)|$(Platform)' == 'Below Zero|AnyCPU'">
-      <HintPath>$(GameDirBZ)\SubnauticaZero_Data\Managed\UnityEngine.TerrainModule.dll</HintPath>
     </Reference>
     <!--  Shared Reference Group -->
     <Reference Include="System" />
@@ -147,7 +138,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Item.cs" />
-    <Compile Include="Mono.cs" />
+    <Compile Include="MonoBehaviours\ControlChipMono.cs" />
+    <Compile Include="MonoBehaviours\uGUI_ResourceIcon.cs" />
     <Compile Include="Patches.cs" />
     <Compile Include="QMod.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -156,7 +148,9 @@
     <None Include="mod_BZ.json" />
     <None Include="mod_SN.json" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Assets\" />
+  </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
