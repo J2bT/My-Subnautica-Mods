@@ -33,7 +33,6 @@ namespace J2bT.ControlChipMod.MonoBehaviours
                 icon = go.AddComponent<uGUI_ItemIcon>();
                 icon.Init(null, transform, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f));
                 icon.SetSize(iconSize);
-                //icon.SetForegroundSprite(SpriteManager.Get(SpriteManager.Group.Item, TechType.Gravsphere.AsString()));
                 icon.SetBackgroundSprite(SpriteManager.GetBackground(CraftData.BackgroundType.Normal));
                 icon.SetBackgroundRadius(Mathf.Min(iconSize.x, iconSize.y) * 0.5f);
                 Color color = new Color(10f, 100f, 160f, 2f);
