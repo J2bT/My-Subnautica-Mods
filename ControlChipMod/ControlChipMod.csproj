@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <Import Project="..\GameDirs.targets" />
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Configuration Condition=" '$(Configuration)' == '' ">Subnautica Legacy</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{ACDF2DCD-B4F8-4550-A2D1-D20FF1BD3D80}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -13,129 +14,9 @@
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
-  <PropertyGroup>
-    <GameDirSN>E:\Steam\steamapps\common\Subnautica</GameDirSN>
-    <GameDirBZ>E:\Steam\steamapps\common\SubnauticaZero</GameDirBZ>
-  </PropertyGroup>
-  <!--  Subnautica Build Group -->
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Subnautica|AnyCPU'">
-    <OutputPath>bin\Subnautica\</OutputPath>
-    <DefineConstants>SN;SUBNAUTICA</DefineConstants>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <LangVersion>7.3</LangVersion>
-    <ErrorReport>prompt</ErrorReport>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <!--  Below Zero Build Group -->
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Below Zero|AnyCPU'">
-    <OutputPath>bin\Below Zero\</OutputPath>
-    <DefineConstants>BZ;BELOWZERO</DefineConstants>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <LangVersion>7.3</LangVersion>
-    <ErrorReport>prompt</ErrorReport>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <!-- Default Release Build Group -->
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <!-- Default Debug Build Group -->
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Subnautica Legacy|AnyCPU'">
-    <OutputPath>bin\Subnautica Legacy\</OutputPath>
-    <DefineConstants>SN;SUBNAUTICA</DefineConstants>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <LangVersion>7.3</LangVersion>
-    <ErrorReport>prompt</ErrorReport>
-  </PropertyGroup>
+  <Import Project="..\Configurations.targets" />
+  <Import Project="..\References.targets" />
   <ItemGroup>
-    <!--  Subnautica reference group -->
-    <Reference Include="0Harmony" Condition="'$(Configuration)|$(Platform)' == 'Subnautica|AnyCPU'">
-      <HintPath>$(GameDirSN)\BepInEx\core\0Harmony.dll</HintPath>
-    </Reference>
-    <Reference Include="Assembly-CSharp-firstpass_publicized" Condition="'$(Configuration)|$(Platform)' == 'Subnautica|AnyCPU'">
-      <HintPath>$(GameDirSN)\Subnautica_Data\Managed\publicized_assemblies\Assembly-CSharp-firstpass_publicized.dll</HintPath>
-    </Reference>
-    <Reference Include="Assembly-CSharp_publicized" Condition="'$(Configuration)|$(Platform)' == 'Subnautica|AnyCPU'">
-      <HintPath>$(GameDirSN)\Subnautica_Data\Managed\publicized_assemblies\Assembly-CSharp_publicized.dll</HintPath>
-    </Reference>
-    <Reference Include="QModInstaller" Condition="'$(Configuration)|$(Platform)' == 'Subnautica|AnyCPU'">
-      <HintPath>$(GameDirSN)\BepInEx\plugins\QModManager\QModInstaller.dll</HintPath>
-    </Reference>
-    <Reference Include="SMLHelper" Condition="'$(Configuration)|$(Platform)' == 'Subnautica|AnyCPU'">
-      <HintPath>$(GameDirSN)\QMods\Modding Helper\SMLHelper.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine" Condition="'$(Configuration)|$(Platform)' == 'Subnautica|AnyCPU'">
-      <HintPath>$(GameDirSN)\Subnautica_Data\Managed\UnityEngine.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.CoreModule" Condition="'$(Configuration)|$(Platform)' == 'Subnautica|AnyCPU'">
-      <HintPath>$(GameDirSN)\Subnautica_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.InputLegacyModule" Condition="'$(Configuration)|$(Platform)' == 'Subnautica|AnyCPU'">
-      <HintPath>$(GameDirSN)\Subnautica_Data\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.PhysicsModule" Condition="'$(Configuration)|$(Platform)' == 'Subnautica|AnyCPU'">
-      <HintPath>$(GameDirSN)\Subnautica_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI" Condition="'$(Configuration)|$(Platform)' == 'Subnautica|AnyCPU'">
-      <HintPath>$(GameDirSN)\Subnautica_Data\Managed\UnityEngine.UI.dll</HintPath>
-    </Reference>
-    <!--  Below Zero Reference Group -->
-    <Reference Include="0Harmony" Condition="'$(Configuration)|$(Platform)' == 'Below Zero|AnyCPU'">
-      <HintPath>$(GameDirBZ)\BepInEx\core\0Harmony.dll</HintPath>
-    </Reference>
-    <Reference Include="Assembly-CSharp-firstpass_publicized" Condition="'$(Configuration)|$(Platform)' == 'Below Zero|AnyCPU'">
-      <HintPath>$(GameDirBZ)\SubnauticaZero_Data\Managed\publicized_assemblies\Assembly-CSharp-firstpass_publicized.dll</HintPath>
-    </Reference>
-    <Reference Include="Assembly-CSharp_publicized" Condition="'$(Configuration)|$(Platform)' == 'Below Zero|AnyCPU'">
-      <HintPath>$(GameDirBZ)\SubnauticaZero_Data\Managed\publicized_assemblies\Assembly-CSharp_publicized.dll</HintPath>
-    </Reference>
-    <Reference Include="QModInstaller" Condition="'$(Configuration)|$(Platform)' == 'Below Zero|AnyCPU'">
-      <HintPath>$(GameDirBZ)\BepInEx\plugins\QModManager\QModInstaller.dll</HintPath>
-    </Reference>
-    <Reference Include="SMLHelper" Condition="'$(Configuration)|$(Platform)' == 'Below Zero|AnyCPU'">
-      <HintPath>$(GameDirBZ)\QMods\SMLHelper_BZ\SMLHelper.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine" Condition="'$(Configuration)|$(Platform)' == 'Below Zero|AnyCPU'">
-      <HintPath>$(GameDirBZ)\SubnauticaZero_Data\Managed\UnityEngine.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.CoreModule" Condition="'$(Configuration)|$(Platform)' == 'Below Zero|AnyCPU'">
-      <HintPath>$(GameDirBZ)\SubnauticaZero_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.InputLegacyModule" Condition="'$(Configuration)|$(Platform)' == 'Below Zero|AnyCPU'">
-      <HintPath>$(GameDirBZ)\SubnauticaZero_Data\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.PhysicsModule" Condition="'$(Configuration)|$(Platform)' == 'Below Zero|AnyCPU'">
-      <HintPath>$(GameDirBZ)\SubnauticaZero_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI" Condition="'$(Configuration)|$(Platform)' == 'Below Zero|AnyCPU'">
-      <HintPath>$(GameDirBZ)\SubnauticaZero_Data\Managed\UnityEngine.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.PhysicsModule" Condition="'$(Configuration)|$(Platform)' == 'Below Zero|AnyCPU'">
-      <HintPath>$(GameDirBZ)\SubnauticaZero_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
-    </Reference>
     <!--  Shared Reference Group -->
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -163,16 +44,5 @@
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PostBuildEvent Condition="'$(Configuration)|$(Platform)' == 'Below Zero|AnyCPU'">mkdir "$(GameDirBZ)\QMods\$(TargetName)"
-mkdir "$(GameDirBZ)\QMods\$(TargetName)\Assets"
-copy /Y "$(TargetPath)" "$(GameDirBZ)\QMods\$(TargetName)"
-copy /Y "$(ProjectDir)\mod_BZ.json" "$(GameDirBZ)\QMods\$(TargetName)\mod.json"
-xcopy /q/y/i "$(ProjectDir)/Assets" "$(GameDirBZ)\QMods\$(TargetName)\Assets"</PostBuildEvent>
-    <PostBuildEvent Condition="'$(Configuration)|$(Platform)' == 'Subnautica|AnyCPU'">mkdir "$(GameDirSN)\QMods\$(TargetName)"
-mkdir "$(GameDirSN)\QMods\$(TargetName)\Assets"
-copy /Y "$(TargetPath)" "$(GameDirSN)\QMods\$(TargetName)"
-copy /Y "$(ProjectDir)mod_SN.json" "$(GameDirSN)\QMods\$(TargetName)\mod.json"
-xcopy /q/y/i "$(ProjectDir)/Assets" "$(GameDirSN)\QMods\$(TargetName)\Assets"</PostBuildEvent>
-  </PropertyGroup>
+  <Import Project="..\PostBuildEvents.targets" />
 </Project>
