@@ -5,11 +5,19 @@ VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControlChipMod", "ControlChipMod\ControlChipMod.csproj", "{ACDF2DCD-B4F8-4550-A2D1-D20FF1BD3D80}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DE7696CD-39F8-45AF-A586-74130AD5EFA7}"
+	ProjectSection(SolutionItems) = preProject
+		Configurations.targets = Configurations.targets
+		GameDirs.targets = GameDirs.targets
+		PostBuildEvents.targets = PostBuildEvents.targets
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Below Zero|Any CPU = Below Zero|Any CPU
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+		Subnautica Legacy|Any CPU = Subnautica Legacy|Any CPU
 		Subnautica|Any CPU = Subnautica|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
@@ -19,6 +27,8 @@ Global
 		{ACDF2DCD-B4F8-4550-A2D1-D20FF1BD3D80}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ACDF2DCD-B4F8-4550-A2D1-D20FF1BD3D80}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ACDF2DCD-B4F8-4550-A2D1-D20FF1BD3D80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACDF2DCD-B4F8-4550-A2D1-D20FF1BD3D80}.Subnautica Legacy|Any CPU.ActiveCfg = Subnautica Legacy|Any CPU
+		{ACDF2DCD-B4F8-4550-A2D1-D20FF1BD3D80}.Subnautica Legacy|Any CPU.Build.0 = Subnautica Legacy|Any CPU
 		{ACDF2DCD-B4F8-4550-A2D1-D20FF1BD3D80}.Subnautica|Any CPU.ActiveCfg = Subnautica|Any CPU
 		{ACDF2DCD-B4F8-4550-A2D1-D20FF1BD3D80}.Subnautica|Any CPU.Build.0 = Subnautica|Any CPU
 	EndGlobalSection

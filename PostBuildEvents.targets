@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+		<!-- QMM Post-Build Event -->
+        <PostBuildEvent Condition="'$(Configuration)|$(Platform)' != 'Subnautica|AnyCPU'">mkdir "$(GameDir)\QMods\$(TargetName)"
+IF EXIST "$(ProjectDir)Assets" mkdir "$(GameDir)\QMods\$(TargetName)\Assets"
+IF EXIST "$(ProjectDir)Assets" xcopy /q/y/i "$(ProjectDir)/Assets" "$(GameDir)\QMods\$(TargetName)\Assets" /E /H /C
+copy /Y "$(TargetPath)" "$(GameDir)\QMods\$(TargetName)"
+copy /Y "$(ProjectDir)\mod.json" "$(GameDir)\QMods\$(TargetName)\mod.json"</PostBuildEvent>
+		<!-- BepInEx Post-Build Event -->
+        <PostBuildEvent Condition="'$(Configuration)|$(Platform)' == 'Subnautica|AnyCPU'">mkdir "$(GameDir)\BepInEx\plugins\$(TargetName)"
+IF EXIST "$(ProjectDir)Assets" mkdir "$(GameDir)\BepInEx\plugins\$(TargetName)\Assets"
+IF EXIST "$(ProjectDir)Assets" xcopy /q/y/i "$(ProjectDir)/Assets" "$(GameDir)\BepInEx\plugins\$(TargetName)\Assets" /E /H /C
+copy /Y "$(TargetPath)" "$(GameDir)\BepInEx\plugins\$(TargetName)"</PostBuildEvent>
+    </PropertyGroup>
+</Project>

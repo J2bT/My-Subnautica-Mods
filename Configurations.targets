@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<!--  Subnautica Build Group -->
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Subnautica|AnyCPU'">
+		<OutputPath>bin\Subnautica\</OutputPath>
+		<DefineConstants>BEPINEX;SUBNAUTICA</DefineConstants>
+		<Optimize>true</Optimize>
+		<DebugType>pdbonly</DebugType>
+		<PlatformTarget>AnyCPU</PlatformTarget>
+		<LangVersion>7.3</LangVersion>
+		<ErrorReport>prompt</ErrorReport>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<WarningLevel>4</WarningLevel>
+	</PropertyGroup>
+	<!--  Subnautica Legacy Build Group -->
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Subnautica Legacy|AnyCPU'">
+		<OutputPath>bin\Subnautica Legacy\</OutputPath>
+		<DefineConstants>QMM;SUBNAUTICA</DefineConstants>
+		<Optimize>true</Optimize>
+		<DebugType>pdbonly</DebugType>
+		<PlatformTarget>AnyCPU</PlatformTarget>
+		<LangVersion>7.3</LangVersion>
+		<ErrorReport>prompt</ErrorReport>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<WarningLevel>4</WarningLevel>
+	</PropertyGroup>
+	<!--  Below Zero Build Group -->
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Below Zero|AnyCPU'">
+		<OutputPath>bin\Below Zero\</OutputPath>
+		<DefineConstants>QMM;BELOWZERO</DefineConstants>
+		<Optimize>true</Optimize>
+		<DebugType>pdbonly</DebugType>
+		<PlatformTarget>AnyCPU</PlatformTarget>
+		<LangVersion>7.3</LangVersion>
+		<ErrorReport>prompt</ErrorReport>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<WarningLevel>4</WarningLevel>
+	</PropertyGroup>
+</Project>

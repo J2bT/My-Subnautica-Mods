@@ -60,6 +60,16 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Subnautica Legacy|AnyCPU'">
+    <OutputPath>bin\Subnautica Legacy\</OutputPath>
+    <DefineConstants>SN;SUBNAUTICA</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
   <ItemGroup>
     <!--  Subnautica reference group -->
     <Reference Include="0Harmony" Condition="'$(Configuration)|$(Platform)' == 'Subnautica|AnyCPU'">

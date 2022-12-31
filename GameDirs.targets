@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<GameDir Condition="'$(Configuration)|$(Platform)' == 'Subnautica|AnyCPU'">E:\Steam\steamapps\common\SubnauticaBranches\original</GameDir>
+		<GameDir Condition="'$(Configuration)|$(Platform)' == 'Subnautica Legacy|AnyCPU'">E:\Steam\steamapps\common\SubnauticaBranches\Legacy</GameDir>
+		<GameDir Condition="'$(Configuration)|$(Platform)' == 'Below Zero|AnyCPU'">E:\Steam\steamapps\common\SubnauticaZero</GameDir>
+	</PropertyGroup>
+</Project>
