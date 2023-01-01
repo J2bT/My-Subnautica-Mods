@@ -1,7 +1,5 @@
 ﻿#if SUBNAUTICA
 using RecipeData = SMLHelper.V2.Crafting.TechData;
-#elif BELOWZERO
-using System.Collections;
 #endif
 using SMLHelper.V2.Assets;
 using SMLHelper.V2.Crafting;
@@ -9,6 +7,9 @@ using System.Reflection;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+#if ASYNC
+using System.Collections;
+#endif
 
 namespace J2bT.ControlChipMod
 {
