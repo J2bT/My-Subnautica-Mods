@@ -29,11 +29,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Config.cs" />
+    <Compile Include="EntryPoints\Plugin.cs" />
+    <Compile Include="EntryPoints\QMod.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="MonoBehaviours\ControlChipMono.cs" />
     <Compile Include="MonoBehaviours\uGUI_ResourceIcon.cs" />
     <Compile Include="Patches.cs" />
-    <Compile Include="QMod.cs" />
+    <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

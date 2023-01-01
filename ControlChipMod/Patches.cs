@@ -56,17 +56,6 @@ namespace J2bT.ControlChipMod
             }
         }
 
-        //[HarmonyPatch(typeof(uGUI_ScannerIcon))]
-        //public static class uGUI_ScannerIcon_Patch
-        //{
-        //    [HarmonyPatch(nameof(uGUI_ScannerIcon.Awake))]
-        //    [HarmonyPostfix]
-        //    public static void AwakePostfix(uGUI_ScannerIcon __instance)
-        //    {
-        //        __instance.gameObject.EnsureComponent<uGUI_ResourceIcon>();
-        //    }
-        //}
-
         [HarmonyPatch(typeof(uGUI_QuickSlots))]
         public static class QuickSlotsPatch
         {

@@ -1,9 +1,8 @@
-﻿#if SUBNAUTICA
-using GameSpecificTracker = ResourceTracker;
-#elif BELOWZERO
+﻿#if ASYNC
 using GameSpecificTracker = ResourceTrackerDatabase;
+#else
+using GameSpecificTracker = ResourceTracker;
 #endif
-using Logger = QModManager.Utility.Logger;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
@@ -26,23 +25,23 @@ namespace J2bT.ControlChipMod.MonoBehaviours
                     roomIndex = mapRooms.Count - 1;
                     ErrorMessage.AddMessage("Selected scanner room was destroyed. Selecting previous one.");
                 }
-                if (Input.GetKeyUp(QMod.Config.next))
+                if (Input.GetKeyUp(Main.Config.next))
                 {
                     SelectResource(true);
                 }
-                else if (Input.GetKeyUp(QMod.Config.previous))
+                else if (Input.GetKeyUp(Main.Config.previous))
                 {
                     SelectResource(false);
                 }
-                else if (Input.GetKeyUp(QMod.Config.nextRoom))
+                else if (Input.GetKeyUp(Main.Config.nextRoom))
                 {
                     SelectRoom(true);
                 }
-                else if (Input.GetKeyUp(QMod.Config.previousRoom))
+                else if (Input.GetKeyUp(Main.Config.previousRoom))
                 {
                     SelectRoom(false);
                 }
-                else if (Input.GetKeyUp(QMod.Config.stop))
+                else if (Input.GetKeyUp(Main.Config.stop))
                 {
                     SelectResource(false, true);
                 }
@@ -54,11 +53,11 @@ namespace J2bT.ControlChipMod.MonoBehaviours
             }
             if (mapRooms.Count > 0 && ChipIsInSlot() && mapRooms[roomIndex].mapRoom.typeToScan != TechType.None)
             {
-                if (QMod.Config.iconChoice == 0)
+                if (Main.Config.iconChoice == 0)
                 {
                     uGUI_ResourceIcon.main.Show();
                 }
-                else if (QMod.Config.iconChoice == 2 && iconTime > 0)
+                else if (Main.Config.iconChoice == 2 && iconTime > 0)
                 {
                     uGUI_ResourceIcon.main.Show();
                     iconTime--;
@@ -70,7 +69,7 @@ namespace J2bT.ControlChipMod.MonoBehaviours
         {
             if (stop)
             {
-                if (QMod.Config.messageChoice) { ErrorMessage.AddMessage("Turning off selected scanner room."); }
+                if (Main.Config.messageChoice) { ErrorMessage.AddMessage("Turning off selected scanner room."); }
                 mapRooms[roomIndex].mapRoom.StartScanning(TechType.None);
                 mapRooms[roomIndex].UpdateGUIState();
                 resourceIndex[roomIndex] = -1;
@@ -78,7 +77,7 @@ namespace J2bT.ControlChipMod.MonoBehaviours
             else if (nextRes && resourceIndex[roomIndex] + 1 < GameSpecificTracker.resources.Count)
             {
                 resourceIndex[roomIndex] += 1;
-                if (QMod.Config.messageChoice)
+                if (Main.Config.messageChoice)
                 { 
                     ErrorMessage.AddMessage($"Searching for {Language.main.Get(GameSpecificTracker.resources.ElementAt(resourceIndex[roomIndex]).Key.AsString())}");
                 }
@@ -93,7 +92,7 @@ namespace J2bT.ControlChipMod.MonoBehaviours
             else if (!nextRes && resourceIndex[roomIndex] - 1 > -1)
             {
                 resourceIndex[roomIndex] -= 1;
-                if (QMod.Config.messageChoice)
+                if (Main.Config.messageChoice)
                 {
                     ErrorMessage.AddMessage($"Searching for {Language.main.Get(GameSpecificTracker.resources.ElementAt(resourceIndex[roomIndex]).Key.AsString())}");
                 }
@@ -116,7 +115,6 @@ namespace J2bT.ControlChipMod.MonoBehaviours
             if (nextRoom && roomIndex + 1 < mapRooms.Count && roomIndex + 1 < 16)
             {
                 roomIndex += 1;
-                Logger.Log(Logger.Level.Debug, $"Current room index: {roomIndex}", showOnScreen: true);
             }
             else if (nextRoom)
             {
@@ -125,7 +123,6 @@ namespace J2bT.ControlChipMod.MonoBehaviours
             else if (!nextRoom && roomIndex - 1 > -1)
             {
                 roomIndex -= 1;
-                Logger.Log(Logger.Level.Debug, $"Current room index: {roomIndex}", showOnScreen: true);
             }
             else if (!nextRoom)
             {
