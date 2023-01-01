@@ -1,8 +1,7 @@
 ﻿#if SUBNAUTICA
 using RecipeData = SMLHelper.V2.Crafting.TechData;
-using Sprite = Atlas.Sprite;
 #elif BELOWZERO
-using Sprite = UnityEngine.Sprite;
+using System.Collections;
 #endif
 using SMLHelper.V2.Assets;
 using SMLHelper.V2.Crafting;
@@ -10,7 +9,6 @@ using System.Reflection;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using System.Collections;
 
 namespace J2bT.ControlChipMod
 {
@@ -63,9 +61,5 @@ namespace J2bT.ControlChipMod
             gameObject.Set(resultPrefab);
         }
 #endif
-        //protected override Sprite GetItemSprite()
-        //{
-        //    return SpriteManager.Get(TechType.MapRoomHUDChip);
-        //}
     }
 }

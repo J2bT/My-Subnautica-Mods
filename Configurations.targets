@@ -3,7 +3,7 @@
 	<!--  Subnautica Build Group -->
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Subnautica|AnyCPU'">
 		<OutputPath>bin\Subnautica\</OutputPath>
-		<DefineConstants>BEPINEX;SUBNAUTICA</DefineConstants>
+		<DefineConstants>BEPINEX;SUBNAUTICA;ASYNC</DefineConstants>
 		<Optimize>true</Optimize>
 		<DebugType>pdbonly</DebugType>
 		<PlatformTarget>AnyCPU</PlatformTarget>
@@ -27,7 +27,7 @@
 	<!--  Below Zero Build Group -->
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Below Zero|AnyCPU'">
 		<OutputPath>bin\Below Zero\</OutputPath>
-		<DefineConstants>QMM;BELOWZERO</DefineConstants>
+		<DefineConstants>QMM;BELOWZERO;ASYNC</DefineConstants>
 		<Optimize>true</Optimize>
 		<DebugType>pdbonly</DebugType>
 		<PlatformTarget>AnyCPU</PlatformTarget>

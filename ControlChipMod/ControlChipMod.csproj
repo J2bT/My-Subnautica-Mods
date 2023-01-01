@@ -28,6 +28,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Config.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="MonoBehaviours\ControlChipMono.cs" />
     <Compile Include="MonoBehaviours\uGUI_ResourceIcon.cs" />

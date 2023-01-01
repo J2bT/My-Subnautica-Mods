@@ -15,6 +15,7 @@ namespace J2bT.ControlChipMod.MonoBehaviours
         public static int roomIndex = 0;
         public static int[] resourceIndex = new int[16] {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1};
         public static List<uGUI_MapRoomScanner> mapRooms = new List<uGUI_MapRoomScanner>();
+        private int iconTime;
         public void Update()
         {
             if (AvatarInputHandler.main.IsEnabled() && ChipIsInSlot() && mapRooms.Count > 0)
@@ -53,7 +54,15 @@ namespace J2bT.ControlChipMod.MonoBehaviours
             }
             if (mapRooms.Count > 0 && ChipIsInSlot() && mapRooms[roomIndex].mapRoom.typeToScan != TechType.None)
             {
-                uGUI_ResourceIcon.main.Show();
+                if (QMod.Config.iconChoice == 0)
+                {
+                    uGUI_ResourceIcon.main.Show();
+                }
+                else if (QMod.Config.iconChoice == 2 && iconTime > 0)
+                {
+                    uGUI_ResourceIcon.main.Show();
+                    iconTime--;
+                }
             }
         }
 
@@ -61,6 +70,7 @@ namespace J2bT.ControlChipMod.MonoBehaviours
         {
             if (stop)
             {
+                if (QMod.Config.messageChoice) { ErrorMessage.AddMessage("Turning off selected scanner room."); }
                 mapRooms[roomIndex].mapRoom.StartScanning(TechType.None);
                 mapRooms[roomIndex].UpdateGUIState();
                 resourceIndex[roomIndex] = -1;
@@ -68,9 +78,13 @@ namespace J2bT.ControlChipMod.MonoBehaviours
             else if (nextRes && resourceIndex[roomIndex] + 1 < GameSpecificTracker.resources.Count)
             {
                 resourceIndex[roomIndex] += 1;
-                Logger.Log(Logger.Level.Debug, $"Current resource index: {resourceIndex[roomIndex]}", showOnScreen: true);
+                if (QMod.Config.messageChoice)
+                { 
+                    ErrorMessage.AddMessage($"Searching for {Language.main.Get(GameSpecificTracker.resources.ElementAt(resourceIndex[roomIndex]).Key.AsString())}");
+                }
                 mapRooms[roomIndex].mapRoom.StartScanning(GameSpecificTracker.resources.ElementAt(resourceIndex[roomIndex]).Key);
                 mapRooms[roomIndex].UpdateGUIState();
+                iconTime = 200;
             }
             else if (nextRes)
             {
@@ -79,9 +93,13 @@ namespace J2bT.ControlChipMod.MonoBehaviours
             else if (!nextRes && resourceIndex[roomIndex] - 1 > -1)
             {
                 resourceIndex[roomIndex] -= 1;
-                Logger.Log(Logger.Level.Debug, $"Current resource index: {resourceIndex[roomIndex]}", showOnScreen: true);
+                if (QMod.Config.messageChoice)
+                {
+                    ErrorMessage.AddMessage($"Searching for {Language.main.Get(GameSpecificTracker.resources.ElementAt(resourceIndex[roomIndex]).Key.AsString())}");
+                }
                 mapRooms[roomIndex].mapRoom.StartScanning(GameSpecificTracker.resources.ElementAt(resourceIndex[roomIndex]).Key);
                 mapRooms[roomIndex].UpdateGUIState();
+                iconTime = 200;
             }
             else if (!nextRes && mapRooms[roomIndex].mapRoom.typeToScan != TechType.None)
             {

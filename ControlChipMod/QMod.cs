@@ -2,10 +2,7 @@
 using HarmonyLib;
 using QModManager.API.ModLoading;
 using Logger = QModManager.Utility.Logger;
-using SMLHelper.V2.Json;
-using SMLHelper.V2.Options.Attributes;
 using SMLHelper.V2.Handlers;
-using UnityEngine;
 
 namespace J2bT.ControlChipMod
 {
@@ -28,19 +25,5 @@ namespace J2bT.ControlChipMod
 
             Logger.Log(Logger.Level.Info, "Patched successfully!");
         }
-    }
-    [Menu("Scanner Room Control Chip")]
-    public class Config : ConfigFile
-    {
-        [Keybind("Next resource / Turn on scanner room")]
-        public KeyCode next = KeyCode.RightArrow;
-        [Keybind("Previous resource")]
-        public KeyCode previous = KeyCode.LeftArrow;
-        [Keybind("Next scanner room")]
-        public KeyCode nextRoom = KeyCode.UpArrow;
-        [Keybind("Previous scanner room")]
-        public KeyCode previousRoom = KeyCode.DownArrow;
-        [Keybind("Turn off selected scanner room")]
-        public KeyCode stop = KeyCode.RightControl;
     }
 }

@@ -26,6 +26,7 @@ namespace J2bT.ControlChipMod.MonoBehaviours
 
         private void Awake()
         {
+            ErrorMessage.AddMessage("Awake method called.");
             if (main == null)
             {
                 main = this;
@@ -39,7 +40,6 @@ namespace J2bT.ControlChipMod.MonoBehaviours
                 icon.SetBackgroundColors(color, color, color);
                 SetAlpha(0f);
                 sequence.ForceState(false);
-                
                 return;
             }
             Destroy(this);

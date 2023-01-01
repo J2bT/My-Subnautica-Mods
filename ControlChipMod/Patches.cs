@@ -13,6 +13,7 @@ namespace J2bT.ControlChipMod
             public static void StartPostfix(Player __instance)
             {
                 __instance.gameObject.EnsureComponent<ControlChipMono>();
+                //__instance.gameObject.EnsureComponent<uGUI_ResourceIcon>();
             }
         }
 
@@ -55,12 +56,23 @@ namespace J2bT.ControlChipMod
             }
         }
 
-        [HarmonyPatch(typeof(uGUI_ScannerIcon))]
-        public static class uGUI_ScannerIcon_Patch
+        //[HarmonyPatch(typeof(uGUI_ScannerIcon))]
+        //public static class uGUI_ScannerIcon_Patch
+        //{
+        //    [HarmonyPatch(nameof(uGUI_ScannerIcon.Awake))]
+        //    [HarmonyPostfix]
+        //    public static void AwakePostfix(uGUI_ScannerIcon __instance)
+        //    {
+        //        __instance.gameObject.EnsureComponent<uGUI_ResourceIcon>();
+        //    }
+        //}
+
+        [HarmonyPatch(typeof(uGUI_QuickSlots))]
+        public static class QuickSlotsPatch
         {
-            [HarmonyPatch(nameof(uGUI_ScannerIcon.Awake))]
+            [HarmonyPatch(nameof(uGUI_QuickSlots.Init))]
             [HarmonyPostfix]
-            public static void AwakePostfix(uGUI_ScannerIcon __instance)
+            public static void InitPostfix(uGUI_ScannerIcon __instance)
             {
                 __instance.gameObject.EnsureComponent<uGUI_ResourceIcon>();
             }
