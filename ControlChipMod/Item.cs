@@ -63,9 +63,9 @@ namespace J2bT.ControlChipMod
             gameObject.Set(resultPrefab);
         }
 #endif
-        protected override Sprite GetItemSprite()
-        {
-            return SpriteManager.Get(TechType.MapRoomHUDChip);
-        }
+        //protected override Sprite GetItemSprite()
+        //{
+        //    return SpriteManager.Get(TechType.MapRoomHUDChip);
+        //}
     }
 }
