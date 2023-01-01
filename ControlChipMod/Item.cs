@@ -9,7 +9,6 @@ using System.Reflection;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using System.Collections;
 
 namespace J2bT.ControlChipMod
 {

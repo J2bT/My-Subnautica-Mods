@@ -13,7 +13,7 @@ namespace J2bT.ControlChipMod.EntryPoints
         public static void Patch()
         {
             Main.Init();
-            Logger.Log(Main.modName + " v" + Main.versionString + " loaded.");
+            Logger.Log(Logger.Level.Info, Main.modName + " v" + Main.versionString + " loaded.");
         }
     }
 }
