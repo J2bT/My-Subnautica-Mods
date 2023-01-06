@@ -7,6 +7,7 @@ using System.Reflection;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using SMLHelper.V2.Handlers;
 #if ASYNC
 using System.Collections;
 #endif
@@ -29,9 +30,6 @@ namespace J2bT.ControlChipMod
         public override TechGroup GroupForPDA => TechGroup.Workbench;
         public override TechCategory CategoryForPDA => TechCategory.Workbench;
         public override CraftTree.Type FabricatorType => CraftTree.Type.Workbench;
-#if !ASYNC
-        public override string[] StepsToFabricatorTab => new[] { Main.tabName };
-#endif
         public override float CraftingTime => 1f;
         public override QuickSlotType QuickSlotType => QuickSlotType.Passive;
 
