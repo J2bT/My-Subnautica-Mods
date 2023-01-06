@@ -4,22 +4,22 @@ using UnityEngine;
 
 namespace J2bT.ControlChipMod
 {
-    [Menu("Scanner Room Control Chip")]
+    [Menu(Lang.Options.MenuName)]
     public class Config : ConfigFile
     {
-        [Keybind("Next resource / Turn on scanner room")]
+        [Keybind(LabelLanguageId = Lang.Options.NextResource)]
         public KeyCode next = KeyCode.RightArrow;
-        [Keybind("Previous resource")]
+        [Keybind(LabelLanguageId = Lang.Options.PreviousResource)]
         public KeyCode previous = KeyCode.LeftArrow;
-        [Keybind("Next scanner room")]
+        [Keybind(LabelLanguageId = Lang.Options.NextRoom)]
         public KeyCode nextRoom = KeyCode.UpArrow;
-        [Keybind("Previous scanner room")]
+        [Keybind(LabelLanguageId = Lang.Options.PreviousRoom)]
         public KeyCode previousRoom = KeyCode.DownArrow;
-        [Keybind("Turn off selected scanner room")]
+        [Keybind(LabelLanguageId = Lang.Options.StopRoom)]
         public KeyCode stop = KeyCode.RightControl;
-        [Toggle("Display a message on selecting a resource?", Tooltip = "Will only work if the chip is equipped.")]
+        [Toggle(LabelLanguageId = Lang.Options.MessageChoice, TooltipLanguageId = Lang.Options.ChipEquippedTooltip)]
         public bool messageChoice = true;
-        [Choice("Display the icon of the selected resource?", "Always, if the room is on", "Off", "On selecting a resource", Tooltip = "Will only work if the chip is equipped.")]
+        [Choice(Lang.Options.IconChoice, Lang.Options.Always, "Off", Lang.Options.OnSelect, TooltipLanguageId = Lang.Options.ChipEquippedTooltip)]
         public int iconChoice = 2;
     }
 }

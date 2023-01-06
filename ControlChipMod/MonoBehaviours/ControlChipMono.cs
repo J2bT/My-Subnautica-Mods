@@ -23,7 +23,7 @@ namespace J2bT.ControlChipMod.MonoBehaviours
                 {
                     resourceIndex[roomIndex] = -1;
                     roomIndex = mapRooms.Count - 1;
-                    ErrorMessage.AddMessage("Selected scanner room was destroyed. Selecting previous one.");
+                    ErrorMessage.AddMessage(Language.main.Get(Lang.Messages.MapRoomDestroyed));
                 }
                 if (Input.GetKeyUp(Main.Config.next))
                 {
@@ -69,7 +69,7 @@ namespace J2bT.ControlChipMod.MonoBehaviours
         {
             if (stop)
             {
-                if (Main.Config.messageChoice) { ErrorMessage.AddMessage("Turning off selected scanner room."); }
+                if (Main.Config.messageChoice) { ErrorMessage.AddMessage(Language.main.Get(Lang.Messages.MapRoomDeact)); }
                 mapRooms[roomIndex].mapRoom.StartScanning(TechType.None);
                 mapRooms[roomIndex].UpdateGUIState();
                 resourceIndex[roomIndex] = -1;
@@ -79,7 +79,7 @@ namespace J2bT.ControlChipMod.MonoBehaviours
                 resourceIndex[roomIndex] += 1;
                 if (Main.Config.messageChoice)
                 { 
-                    ErrorMessage.AddMessage($"Searching for {Language.main.Get(GameSpecificTracker.resources.ElementAt(resourceIndex[roomIndex]).Key.AsString())}");
+                    ErrorMessage.AddMessage(Language.main.Get(Lang.Messages.SearchFor) + " " + Language.main.Get(GameSpecificTracker.resources.ElementAt(resourceIndex[roomIndex]).Key.AsString()));
                 }
                 mapRooms[roomIndex].mapRoom.StartScanning(GameSpecificTracker.resources.ElementAt(resourceIndex[roomIndex]).Key);
                 mapRooms[roomIndex].UpdateGUIState();
@@ -87,14 +87,14 @@ namespace J2bT.ControlChipMod.MonoBehaviours
             }
             else if (nextRes)
             {
-                ErrorMessage.AddMessage("Can't select next resource! The last resource is currently selected.");
+                ErrorMessage.AddMessage(Language.main.Get(Lang.Messages.ErrLastRes));
             }
             else if (!nextRes && resourceIndex[roomIndex] - 1 > -1)
             {
                 resourceIndex[roomIndex] -= 1;
                 if (Main.Config.messageChoice)
                 {
-                    ErrorMessage.AddMessage($"Searching for {Language.main.Get(GameSpecificTracker.resources.ElementAt(resourceIndex[roomIndex]).Key.AsString())}");
+                    ErrorMessage.AddMessage(Language.main.Get(Lang.Messages.SearchFor) + " " + Language.main.Get(GameSpecificTracker.resources.ElementAt(resourceIndex[roomIndex]).Key.AsString()));
                 }
                 mapRooms[roomIndex].mapRoom.StartScanning(GameSpecificTracker.resources.ElementAt(resourceIndex[roomIndex]).Key);
                 mapRooms[roomIndex].UpdateGUIState();
@@ -102,11 +102,11 @@ namespace J2bT.ControlChipMod.MonoBehaviours
             }
             else if (!nextRes && mapRooms[roomIndex].mapRoom.typeToScan != TechType.None)
             {
-                ErrorMessage.AddMessage("Can't select previous resource! The first resource is currently selected.");
+                ErrorMessage.AddMessage(Language.main.Get(Lang.Messages.ErrFirstRes));
             }
             else if (!nextRes)
             {
-                ErrorMessage.AddMessage("Can't select previous resource! Selected room is not active.");
+                ErrorMessage.AddMessage(Language.main.Get(Lang.Messages.ErrRoomOff));
             }
         }
 
@@ -118,7 +118,7 @@ namespace J2bT.ControlChipMod.MonoBehaviours
             }
             else if (nextRoom)
             {
-                ErrorMessage.AddMessage("Can't select next room! The last room is currently selected.");
+                ErrorMessage.AddMessage(Language.main.Get(Lang.Messages.ErrLastRoom));
             }
             else if (!nextRoom && roomIndex - 1 > -1)
             {
@@ -126,7 +126,7 @@ namespace J2bT.ControlChipMod.MonoBehaviours
             }
             else if (!nextRoom)
             {
-                ErrorMessage.AddMessage("Can't select previous room! The first room is currently selected.");
+                ErrorMessage.AddMessage(Language.main.Get(Lang.Messages.ErrFirstRoom));
             }
         }
 

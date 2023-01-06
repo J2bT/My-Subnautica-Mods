@@ -32,6 +32,7 @@
     <Compile Include="EntryPoints\Plugin.cs" />
     <Compile Include="EntryPoints\QMod.cs" />
     <Compile Include="Item.cs" />
+    <Compile Include="Lang.cs" />
     <Compile Include="MonoBehaviours\ControlChipMono.cs" />
     <Compile Include="MonoBehaviours\uGUI_ResourceIcon.cs" />
     <Compile Include="Patches.cs" />

@@ -23,6 +23,7 @@ namespace J2bT.ControlChipMod
 #endif
             MapRoomControlChip mapRoomControlChip = new MapRoomControlChip();
             mapRoomControlChip.Patch();
+            Lang.Patch();
             Config = OptionsPanelHandler.Main.RegisterModOptions<Config>();
         }
     }
