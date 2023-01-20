@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+	<!--=================================-->
+	<!--      Common build settings      -->
+	<!--=================================-->
+	<PropertyGroup>
+		<OutputType>Library</OutputType>
+		<RootNamespace>J2bT.$(MSBuildProjectName)</RootNamespace>
+		<AssemblyName>J2bT_$(MSBuildProjectName)</AssemblyName>
+		<Configurations>SN1;SN2;BZ</Configurations>
+		<Platforms>AnyCPU</Platforms>
+		<TargetFramework>net472</TargetFramework>
+		<FileAlignment>512</FileAlignment>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<Optimize>true</Optimize>
+		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+		<LangVersion>latest</LangVersion>
+		<PlatformTarget>AnyCPU</PlatformTarget>
+		<ErrorReport>prompt</ErrorReport>
+		<Prefer32Bit>false</Prefer32Bit>
+	</PropertyGroup>
+
+	<!--==============================-->
+	<!--      Directory settings      -->
+	<!--        (change these)        -->
+	<!--==============================-->
+	<PropertyGroup>
+		<CommonDir>E:\Steam\steamapps\common\</CommonDir>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)' == 'SN1'">
+		<DefineConstants>SN;SN1;QMM</DefineConstants>
+		<GameDir>$(CommonDir)SubnauticaBranches\Legacy</GameDir>
+		<DataFolder>Subnautica_Data</DataFolder>
+		<ModsFolder>QMods</ModsFolder>
+		<SMLHelperFolder>Modding Helper</SMLHelperFolder>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)' == 'SN2'">
+		<DefineConstants>SN;SN2;BEPINEX</DefineConstants>
+		<GameDir>$(CommonDir)SubnauticaBranches\original</GameDir>
+		<DataFolder>Subnautica_Data</DataFolder>
+		<ModsFolder>BepInEx\plugins</ModsFolder>
+		<SMLHelperFolder>Modding Helper</SMLHelperFolder>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)' == 'BZ'">
+		<DefineConstants>BZ;QMM</DefineConstants>
+		<GameDir>$(CommonDir)SubnauticaZero</GameDir>
+		<DataFolder>SubnauticaZero_Data</DataFolder>
+		<ModsFolder>QMods</ModsFolder>
+		<SMLHelperFolder>SMLHelper_BZ</SMLHelperFolder>
+	</PropertyGroup>
+
+	<!--==============================-->
+	<!--      Copy to QModFolder      -->
+	<!--      Create zip              -->
+	<!--==============================-->
+	<PropertyGroup>
+		<PostBuildEvent>
+			mkdir "$(GameDir)\$(ModsFolder)\$(TargetName)"
+			IF EXIST "$(ProjectDir)Assets" mkdir "$(GameDir)\$(ModsFolder)\$(TargetName)\Assets"
+			IF EXIST "$(ProjectDir)Assets" xcopy /q/y/i "$(ProjectDir)/Assets" "$(GameDir)\$(ModsFolder)\$(TargetName)\Assets" /E /H /C
+			copy /Y "$(TargetPath)" "$(GameDir)\$(ModsFolder)\$(TargetName)"
+			if not "$(Configuration)" == "SN2" copy /Y "$(ProjectDir)\mod_$(Configuration).json" "$(GameDir)\$(ModsFolder)\$(TargetName)\mod.json"
+		</PostBuildEvent>
+	</PropertyGroup>
+
+	<!--===============================-->
+	<!--      Global Dependencies      -->
+	<!--===============================-->
+	<ItemGroup>
+		<Reference Include="0Harmony">
+			<HintPath>$(GameDir)\BepInEx\core\0Harmony.dll</HintPath>
+		</Reference>
+		<Reference Include="QModInstaller" Condition="$(Configuration.EndsWith(`1`))">
+			<HintPath>$(GameDir)\BepInEx\plugins\QModManager\QModInstaller.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="QModInstaller" Condition="$(Configuration.StartsWith('BZ'))">
+			<HintPath>$(GameDir)\BepInEx\plugins\QModManager\QModInstaller.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="SMLHelper">
+			<HintPath>$(GameDir)\$(ModsFolder)\$(SMLHelperFolder)\SMLHelper.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="Assembly-CSharp_publicized">
+			<HintPath>$(GameDir)\$(DataFolder)\Managed\publicized_assemblies\Assembly-CSharp_publicized.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="Assembly-CSharp-firstpass_publicized">
+			<HintPath>$(GameDir)\$(DataFolder)\Managed\publicized_assemblies\Assembly-CSharp-firstpass_publicized</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="UnityEngine.CoreModule">
+			<HintPath>$(GameDir)\$(DataFolder)\Managed\UnityEngine.CoreModule.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="UnityEngine.InputLegacyModule">
+			<HintPath>$(GameDir)\$(DataFolder)\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="UnityEngine.PhysicsModule">
+			<HintPath>$(GameDir)\$(DataFolder)\Managed\UnityEngine.PhysicsModule.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="UnityEngine.ProfilerModule">
+			<HintPath>$(GameDir)\$(DataFolder)\Managed\UnityEngine.ProfilerModule.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="UnityEngine.TextRenderingModule">
+			<HintPath>$(GameDir)\$(DataFolder)\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="UnityEngine.UI">
+			<HintPath>$(GameDir)\$(DataFolder)\Managed\UnityEngine.UI.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="UnityEngine.UIModule">
+			<HintPath>$(GameDir)\$(DataFolder)\Managed\UnityEngine.UIModule.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+	</ItemGroup>
+</Project>
